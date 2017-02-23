@@ -141,6 +141,14 @@ var Client = require('node-wolfram');
                                         flag = 1
 
                                     }
+									for(var c=0; c<subpod.img.length; c++)
+                                    {
+                                        var img_url = subpod.img[c];
+                                        console.log('\t', img_url);
+                                        sendGenericMessage(sender,img_url)
+                                        flag = 1
+
+                                    }
                                 }
                             }
                             //return;
@@ -160,8 +168,8 @@ var Client = require('node-wolfram');
     Wolfram.query(text,callback);
 };
 
-/*
-function sendGenericMessage(sender) {
+
+function sendGenericMessage(sender,img_url) {
     let messageData = {
         "attachment": {
             "type": "template",
@@ -170,10 +178,10 @@ function sendGenericMessage(sender) {
                 "elements": [{
                     "title": "First card",
                     "subtitle": "Element #1 of an hscroll",
-                    "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
+                    "image_url": img_url,
                     "buttons": [{
                         "type": "web_url",
-                        "uarl": "https://www.messenger.com",
+                        "uarl": "https://www.google.com",
                         "title": "web url"
                     }, {
                         "type": "postback",
@@ -209,4 +217,3 @@ function sendGenericMessage(sender) {
         }
     })
 }
-*/
